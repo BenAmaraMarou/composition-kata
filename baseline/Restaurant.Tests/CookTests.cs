@@ -7,7 +7,7 @@ namespace Restaurant.Tests
     {
         private const Menu Spaghetti = Menu.Spaghetti;
         private const decimal SpaghettiPrice = 10;
-        private readonly Dish _spaghettiDish = new Dish(Spaghetti, SpaghettiPrice);
+        private readonly Meal _spaghettiMeal = new Meal(Spaghetti, SpaghettiPrice);
         private Cook _cook;
 
         [SetUp]
@@ -17,10 +17,10 @@ namespace Restaurant.Tests
         }
 
         [Test]
-        public void Cook_Should_Cook_Dish()
+        public void Cook_Prepares_Meal()
         {
-            var actualDish = _cook.Prepare(Spaghetti);
-            Assert.AreEqual(_spaghettiDish, actualDish);
+            var actualMeal = _cook.Prepare(Spaghetti);
+            Assert.AreEqual(_spaghettiMeal, actualMeal);
         }
     }
 }

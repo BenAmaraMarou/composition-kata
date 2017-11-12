@@ -7,10 +7,10 @@ namespace Restaurant
     {
         private readonly IDictionary<Menu, decimal> _pricing = new Dictionary<Menu, decimal> { { Menu.Spaghetti, 10 }};
 
-        public Dish Prepare(Menu menu)
+        public Meal Prepare(Menu menu)
         {
-            var dish = _pricing.Single(item => item.Key == menu);
-            return new Dish(menu, dish.Value);
+            var meal = _pricing.Single(item => item.Key == menu);
+            return new Meal(menu, meal.Value);
         }
     }
 }

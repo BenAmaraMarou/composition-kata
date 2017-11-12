@@ -2,6 +2,6 @@
 {
     public interface ICook
     {
-        Dish Prepare(Menu menu);
+        Meal Prepare(Menu menu);
     }
 }

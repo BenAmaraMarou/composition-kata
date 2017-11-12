@@ -3,9 +3,9 @@ namespace Restaurant
 {
     public class Accounting : IAccounting
     {
-        public bool Check(Dish dish, decimal money)
+        public bool Check(Meal meal, decimal money)
         {
-            return dish.Price <= money;
+            return meal.Price <= money;
         }
     }
 }

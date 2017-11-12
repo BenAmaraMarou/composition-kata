@@ -3,6 +3,6 @@ namespace Restaurant
 {
     public interface IAccounting
     {
-        bool Check(Dish dish, decimal money);
+        bool Check(Meal meal, decimal money);
     }
 }

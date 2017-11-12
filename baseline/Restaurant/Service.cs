@@ -2,18 +2,18 @@
 {
     public class Service
     {
-        private IClient client;
+        private ICustomer customer;
 
-        public Service(IClient client)
+        public Service(ICustomer customer)
         {
-            this.client = client;
+            this.customer = customer;
         }
 
         public bool Make(Menu menu, decimal money)
         {
-            var dish = client.Order(menu);
-            client.Eat(dish);
-            var isPaymentDone = client.Pay(dish, money);
+            var meal = customer.Order(menu);
+            customer.Eat(meal);
+            var isPaymentDone = customer.Pay(meal, money);
             return isPaymentDone;
         }
     }

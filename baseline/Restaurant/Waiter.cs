@@ -11,12 +11,12 @@
             _accounting = accounting;
         }
 
-        public bool Cash(Dish dish, decimal money)
+        public bool Cash(Meal meal, decimal money)
         {
-            return _accounting.Check(dish, money);
+            return _accounting.Check(meal, money);
         }
 
-        public Dish Serve(Menu menu)
+        public Meal Serve(Menu menu)
         {
             return _cook.Prepare(menu);
         }

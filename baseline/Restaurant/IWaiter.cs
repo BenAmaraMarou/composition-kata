@@ -2,7 +2,7 @@
 {
     public interface IWaiter
     {
-        Dish Serve(Menu menu);
-        bool Cash(Dish dish, decimal money);
+        Meal Serve(Menu menu);
+        bool Cash(Meal meal, decimal money);
     }
 }

@@ -8,28 +8,25 @@ namespace Restaurant.Tests
     {
         private const Menu Spaghetti = Menu.Spaghetti;
         private const decimal SpaghettiPrice = 10;
-        private readonly Dish _spaghettiDish = new Dish(Spaghetti, SpaghettiPrice);
+        private readonly Meal _spaghettiMeal = new Meal(Spaghetti, SpaghettiPrice);
         private const bool IsPaymentDone = true;
-        private IClient client;
+        private ICustomer customer;
 
         [SetUp]
         public void SetUp()
         {
-            client = Substitute.For<IClient>();
+            customer = Substitute.For<ICustomer>();
         }
         
         [Test]
-        public void Servcice_Should_Be_Made_For_Client()
+        public void Servcice_Should_Be_Made_For_Customer()
         {
-            //Arrange
-            client.Order(Spaghetti).Returns(_spaghettiDish);
-            client.Pay(_spaghettiDish, SpaghettiPrice).Returns(IsPaymentDone);
-            var service = new Service(client);
-            //Act
+            customer.Order(Spaghetti).Returns(_spaghettiMeal);
+            customer.Pay(_spaghettiMeal, SpaghettiPrice).Returns(IsPaymentDone);
+            var service = new Service(customer);
             var isServiceDone = service.Make(Spaghetti, SpaghettiPrice);
-            //Assert
-            client.Received().Order(Spaghetti);
-            client.Received().Pay(_spaghettiDish, SpaghettiPrice);
+            customer.Received().Order(Spaghetti);
+            customer.Received().Pay(_spaghettiMeal, SpaghettiPrice);
             Assert.IsTrue(isServiceDone);
         }
     }
